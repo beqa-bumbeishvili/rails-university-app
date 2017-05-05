@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @school.name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @school.city %>
+</p>
+
+<h3> Students learning in this school: </h3>
+
+<% @school.students.each do |student| %>
+    <p> <%= student.name %> <%= student.last_name %></p>
+<% end %>
+
+<h3> lectures taught in this school: </h3>
+
+<% @school.lectures.each do |lecture| %>
+   <p> <%= lecture.name %></p>
+ <% end %>
+
+<h3>create new student</h3>
+<%= render 'students/form', student: @student %>
+
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>

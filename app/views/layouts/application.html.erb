@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails1</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <%= link_to 'Home Page', root_path %>
+  <%= link_to 'Schools', schools_path %>
+  <%= link_to 'Students', students_path %>
+  <%= link_to 'Lectures', lectures_path %>
+  <%= link_to 'Student Grades', student_grades_path %>
+  <a href="/good_students">Good Students</a>
+  <a href="/passed_students">Passed Students</a>
+  <%= link_to 'Cities', cities_path %>
+  <%= link_to 'Countries', countries_path %>
+  <%= link_to 'Teachers', teachers_path %>
+
+    <%= yield %>
+  </body>
+</html>

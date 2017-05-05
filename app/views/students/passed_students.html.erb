@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Students who pass</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Lecture Name</th>
+    <th>Grade</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.lecture_name %></td>
+        <td><%= student.student_grade %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'all students', students_path %>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  passing_grade: 1
+
+two:
+  name: MyString
+  passing_grade: 1
