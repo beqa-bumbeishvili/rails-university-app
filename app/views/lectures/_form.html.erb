@@ -21,6 +21,14 @@
     <%= f.number_field :passing_grade %>
   </div>
 
+    <div class="field">
+      <%= f.hidden_field :owner_object_id %>
+    </div>
+
+    <div class="field">
+      <%= f.hidden_field :owner_object_type %>
+    </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

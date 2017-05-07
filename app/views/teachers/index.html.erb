@@ -17,7 +17,7 @@
       <tr>
         <td><%= teacher.name %></td>
         <td><%= teacher.last_name %></td>
-        <td><%= teacher.school %></td>
+        <td><%= teacher.school.name %></td>
         <td><%= link_to 'Show', teacher %></td>
         <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
         <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
