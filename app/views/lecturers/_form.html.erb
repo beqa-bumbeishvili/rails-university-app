@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= f.label :school_id %>
-    <%= f.text_field :school_id %>
+    <%= f.collection_select :school_id, School.all, :id, :name %>
   </div>
 
     </div>

@@ -10,6 +10,8 @@ class TeachersController < ApplicationController
 
   def show
     @lecture = @teacher.lectures.new
+    @lecture.owner_object_id = @teacher.id
+    @lecture.owner_object_type = Teacher.to_s
   end
 
   # GET /teachers/new
@@ -62,12 +64,11 @@ class TeachersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_teacher
       @teacher = Teacher.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def teacher_params
       params.require(:teacher).permit(:name, :last_name, :school_id)
     end

@@ -6,6 +6,7 @@ class Lecture < ApplicationRecord
 
   validates :passing_grade, numericality: { only_integer: true }
 
-  belongs_to :owner_object, polymorphic: true
+  belongs_to :owner_object, polymorphic: true, optional: true
+
 
 end

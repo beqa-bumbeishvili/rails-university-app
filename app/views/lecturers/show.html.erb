@@ -15,5 +15,15 @@
   <%= @lecturer.school %>
 </p>
 
+<h3> lectures taught by this lecturer: </h3>
+
+<% @lecturer.lectures.each do |lecture| %>
+    <p> <%= lecture.name %></p>
+<% end %>
+
+<h3>create new lecture</h3>
+<%= render 'lectures/form', lecture: @lecture %>
+
+
 <%= link_to 'Edit', edit_lecturer_path(@lecturer) %> |
 <%= link_to 'Back', lecturers_path %>
