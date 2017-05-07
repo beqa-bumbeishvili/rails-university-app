@@ -5,8 +5,7 @@ class Lecture < ApplicationRecord
                              message: "First should be uppercase" }
 
   validates :passing_grade, numericality: { only_integer: true }
-  belongs_to :teacher
-  has_one :school, through: :teacher
-  belongs_to :teacher, polymorphic: true
+
+  belongs_to :owner_object, polymorphic: true
 
 end
