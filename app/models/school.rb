@@ -10,7 +10,7 @@ class School < ApplicationRecord
 
   has_many :students
   has_many :lectures, through: :teachers
-  has_many :lectures, through: :lecturers
+  #has_many :lectures, through: :lecturers
   has_many :teachers
   has_many :lecturers
 
