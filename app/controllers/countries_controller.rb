@@ -1,18 +1,13 @@
 class CountriesController < ApplicationController
   before_action :set_country, only: [:show, :edit, :update, :destroy]
 
-  # GET /countries
-  # GET /countries.json
   def index
     @countries = Country.all
   end
 
-  # GET /countries/1
-  # GET /countries/1.json
   def show
   end
 
-  # GET /countries/new
   def new
     @country = Country.new
   end
