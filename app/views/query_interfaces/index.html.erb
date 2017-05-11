@@ -1,0 +1,70 @@
+<h2>data retrieved by query interfaces</h2>
+
+
+<h4>1. Display first lecturer, order by last_name DESC</h4>
+<%= @data[:ordered_first_lecturer].name %> <%= @data[:ordered_first_lecturer].last_name %>
+
+<h4>2. Display first lecture, order by name</h4>
+<%= @data[:ordered_first_lecture].name %> <%= @data[:ordered_first_lecture].passing_grade %>
+
+<h4>3. Display first Lecturer, order by lecture name DESC</h4>
+<%= @data[:first_lecturer].name %> <%= @data[:first_lecturer].last_name %>
+
+<h4>4. Display Teacher lectures, where lecture name is equal to 'Calculus'</h4>
+<% @data[:teacher_calculus_lectures].each do |item| %>
+    <%= item.name %>    <%= item.passing_grade %>
+<% end %>
+
+<h4>5. Display School one row, use take</h4>
+<%= @data[:take_first_school][0].name %> <%= @data[:take_first_school][0].city %> ---
+<%= @data[:take_first_school][0].created_at %> ---
+<%= @data[:take_first_school][0].updated_at %>
+
+
+<h4>6. Display School, find by name equal to 'School #1'</h4>
+<%= @data[:find_school].name %> <%= @data[:find_school].city %>
+
+<h4>7. Display list of Students using batches, with size 5</h4>
+<% @data[:students].each do |student| %>
+    <%= student.id %>    <%= student.name %>    <%= student.last_name %> <br>
+<% end %>
+
+<h4>8. Display Lecturers distinct names</h4>
+<% @data[:lecturers_distinct_names].each do |distinct_lecturer| %>
+    <%= distinct_lecturer.name %> <br>
+<% end %>
+
+<h4>9. Display Lecturers who has lectures with name 'Math', order by lecture created_at</h4>
+
+<% @data[:math_lecturers].each do |math_lecturer| %>
+    <%= math_lecturer.name %> <br>
+<% end %>
+
+<h4>10. Display Teachers name and last_name only</h4>
+<% @data[:teachers].each do |teacher| %>
+    <%= teacher.name %>     <%= teacher.last_name %> <br>
+<% end %>
+
+<h4>11. Use optimistic lock for Lecturer and Teacher</h4>
+used
+
+
+
+
+
+
+
+<!--@data = {-->
+<!--ordered_first_lecturer: ordered_first_lecturer,-->
+<!--ordered_first_lecture: ordered_first_lecture,-->
+<!--first_lecturer: first_lecturer,-->
+<!--teacher_calculus_lectures: teacher_calculus_lectures,-->
+<!--take_first_school: take_first_school,-->
+<!--find_school: find_school,-->
+<!--students: students,-->
+<!--lecturers_distinct_names: lecturers_distinct_names,-->
+<!--math_lecturers: math_lecturers,-->
+<!--teachers: teachers-->
+<!--}-->
+
+

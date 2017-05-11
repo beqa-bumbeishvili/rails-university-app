@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506201409) do
+ActiveRecord::Schema.define(version: 20170511075815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170506201409) do
     t.string  "name"
     t.string  "last_name"
     t.integer "school_id"
+    t.integer "lock_version", default: 0, null: false
     t.index ["school_id"], name: "index_lecturers_on_school_id", using: :btree
   end
 
@@ -39,11 +40,9 @@ ActiveRecord::Schema.define(version: 20170506201409) do
     t.integer  "passing_grade"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.integer  "teacher_id"
     t.integer  "owner_object_id"
     t.string   "owner_object_type"
     t.index ["owner_object_id", "owner_object_type"], name: "index_lectures_on_owner_object_id_and_owner_object_type", using: :btree
-    t.index ["teacher_id"], name: "index_lectures_on_teacher_id", using: :btree
   end
 
   create_table "schools", force: :cascade do |t|
@@ -77,12 +76,12 @@ ActiveRecord::Schema.define(version: 20170506201409) do
     t.string  "name"
     t.string  "last_name"
     t.integer "school_id"
+    t.integer "lock_version", default: 0, null: false
     t.index ["school_id"], name: "index_teachers_on_school_id", using: :btree
   end
 
   add_foreign_key "cities", "countries"
   add_foreign_key "lecturers", "schools"
-  add_foreign_key "lectures", "teachers"
   add_foreign_key "student_grades", "lectures"
   add_foreign_key "student_grades", "students"
   add_foreign_key "students", "schools"
