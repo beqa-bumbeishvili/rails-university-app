@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511075815) do
+ActiveRecord::Schema.define(version: 20170514180942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20170511075815) do
     t.string  "last_name"
     t.integer "school_id"
     t.integer "lock_version", default: 0, null: false
+    t.integer "country_id"
+    t.index ["country_id"], name: "index_lecturers_on_country_id", using: :btree
     t.index ["school_id"], name: "index_lecturers_on_school_id", using: :btree
   end
 
@@ -52,6 +54,8 @@ ActiveRecord::Schema.define(version: 20170511075815) do
     t.string   "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "country_id"
+    t.index ["country_id"], name: "index_schools_on_country_id", using: :btree
   end
 
   create_table "student_grades", force: :cascade do |t|
