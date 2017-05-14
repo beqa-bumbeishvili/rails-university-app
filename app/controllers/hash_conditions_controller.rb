@@ -4,7 +4,7 @@ class HashConditionsController < ApplicationController
     lecture_names = Lecture.
         joins('INNER JOIN student_grades ON lecture_id = lectures.id').
         where('student_grade > 60').
-        select(:name)
+        select(:name).distinct
 
     easy_lectures = Lecture.
                     joins('INNER JOIN student_grades ON lecture_id = lectures.id').
@@ -42,12 +42,24 @@ class HashConditionsController < ApplicationController
     max_grade = Student.
                 joins('LEFT JOIN schools ON schools.id = students.school_id').
                 joins('LEFT JOIN countries ON countries.id = schools.country_id').
-                select('students.name, students.last_name, schools.name, countries.name')
+                select('students.name AS student_name, students.last_name AS student_last_name, schools.name AS school_name, countries.name AS country_name')
 
 
     students = Student.
-               joins('INNER JOIN student_grades ON lecture_id = lectures.id').
+               joins('INNER JOIN student_grades ON student_id = students.id').
                joins('LEFT JOIN schools ON schools.id = students.school_id').
-               select('students.name, students.last_name, schools.name, avg(student_grade)')
+               select('students.name AS student_name, students.last_name AS student_last_name, schools.name AS school_name')
+
+    @data = {
+        lecture_names: lecture_names,
+        easy_lectures: easy_lectures,
+        tbilisi_lecturers: tbilisi_lecturers,
+        georgia_lecturers: georgia_lecturers,
+        good_students: good_students,
+        schools: schools,
+        max_grade: max_grade,
+        students: students
+    }
+
   end
 end

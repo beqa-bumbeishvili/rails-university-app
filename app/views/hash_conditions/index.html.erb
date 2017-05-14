@@ -1,3 +1,42 @@
-<h1>
-  hash conditions
-</h1>
+<h1> hash conditions </h1>
+
+<h3>all lecture names where student grades are more than 60</h3>
+<% @data[:lecture_names].each do |item| %>
+<p><%= item.name %></p>
+<% end %>
+
+
+<h3>all lecture names where all student grades are more than 60</h3>
+<% @data[:easy_lectures].each do |item| %>
+    <p><%= item.name %></p>
+<% end %>
+
+<h3>all lecturer name and last_name who works in Tbilisi</h3>
+<% @data[:tbilisi_lecturers].each do |item| %>
+    <p><%= item.name %> | <%= item.last_name %></p>
+<% end %>
+
+<h3>all lecturer name and last_name who works in Georgia</h3>
+<% @data[:georgia_lecturers].each do |item| %>
+    <p><%= item.name %> | <%= item.last_name %></p>
+<% end %>
+
+<h3>all students name, last_name and school name who get in all lectures more than 60 grade</h3>
+<% @data[:good_students].each do |item| %>
+    <p><%= item.name %> | <%= item.last_name %></p>
+<% end %>
+
+<h3>all schools wich are located in Tbilisi or in Germany, order by country name and city name</h3>
+<% @data[:schools].each do |item| %>
+    <p><%= item.name %></p>
+<% end %>
+
+<h3>student name, last_name and schools country name who has maximum gradei</h3>
+<% @data[:max_grade].each do |item| %>
+    <p><%= item.student_name %> | <%= item.student_last_name %> | <%= item.school_name %> | <%= item.country_name %></p>
+<% end %>
+
+<h3>for each student name, last_name, school name and average grade for all lectures </h3>
+<% @data[:students].each do |item| %>
+    <p><%= item.student_name %> | <%= item.student_last_name %> | <%= item.school_name %></p>
+<% end %>
