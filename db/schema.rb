@@ -40,9 +40,11 @@ ActiveRecord::Schema.define(version: 20170511075815) do
     t.integer  "passing_grade"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "teacher_id"
     t.integer  "owner_object_id"
     t.string   "owner_object_type"
     t.index ["owner_object_id", "owner_object_type"], name: "index_lectures_on_owner_object_id_and_owner_object_type", using: :btree
+    t.index ["teacher_id"], name: "index_lectures_on_teacher_id", using: :btree
   end
 
   create_table "schools", force: :cascade do |t|
@@ -82,6 +84,7 @@ ActiveRecord::Schema.define(version: 20170511075815) do
 
   add_foreign_key "cities", "countries"
   add_foreign_key "lecturers", "schools"
+  add_foreign_key "lectures", "teachers"
   add_foreign_key "student_grades", "lectures"
   add_foreign_key "student_grades", "students"
   add_foreign_key "students", "schools"

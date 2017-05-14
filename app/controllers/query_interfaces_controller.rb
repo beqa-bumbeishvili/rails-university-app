@@ -33,7 +33,6 @@ class QueryInterfacesController < ApplicationController
 
     teachers = Teacher.select('name, last_name')
 
-
   @data = {
       ordered_first_lecturer: ordered_first_lecturer,
       ordered_first_lecture: ordered_first_lecture,
@@ -48,7 +47,6 @@ class QueryInterfacesController < ApplicationController
   }
 
 end
-
 
 
 end

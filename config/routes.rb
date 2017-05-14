@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get 'good_students' => 'students#good_students'
   get 'passed_students' => 'students#passed_students'
   get 'query_interfaces' => 'query_interfaces#index'
+  get 'hash_conditions' => 'hash_conditions#index'
 
 end
