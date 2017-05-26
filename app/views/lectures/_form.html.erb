@@ -21,15 +21,40 @@
     <%= f.number_field :passing_grade %>
   </div>
 
-    <div class="field">
-      <%= f.hidden_field :owner_object_id %>
+    Who is owner of this lecture?<br>
+    <input type="radio" name="colors"  id="teacher">Teacher<br>
+    <input type="radio" name="colors"  id="lecturer">Lecturer
+
+    <div id="teacherField" class="field">
+      <%= f.label :teacher %>
+      <%= f.collection_select :owner_object_id, Teacher.all, :id, :name %>
+      <%= f.hidden_field :owner_object_type, value: 'Teacher' %>
     </div>
 
-    <div class="field">
-      <%= f.hidden_field :owner_object_type %>
+    <div id="lecturerField" class="field" >
+      <%= f.label :lecturer %>
+      <%= f.collection_select :owner_object_id, Lecturer.all, :id, :name %>
+      <%= f.hidden_field :owner_object_type, value: 'Lecturer' %>
     </div>
 
   <div class="actions">
-    <%= f.submit %>
-  </div>
+    <input type="submit" name="commit" value="Create Lecture" onclick="passProperOwner()" data-disable-with="Create Lecture">  </div>
+
+
 <% end %>
+
+
+<script>
+    function passProperOwner() {
+        console.log('shemovida')
+        if (document.getElementById("teacher").checked == true) {
+            var elem = document.getElementById("lecturerField");
+            elem.parentNode.removeChild(elem);
+        }
+        else {
+            var elem = document.getElementById("teacherField");
+            elem.parentNode.removeChild(elem);
+        }
+    }
+
+</script>
